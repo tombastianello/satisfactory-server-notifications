@@ -94,6 +94,15 @@ watchFile(logFile, () => {
                 users.splice(users.indexOf(disconnectedUser), 1);
             }
         }
+        if(newLines[i].includes("Running engine for game: FactoryGame")) {
+            notifyDiscord(`Server startup in progress.`);
+        }
+        if(newLines[i].includes("Created socket for bind address: 0.0.0.0 on port 15000")) {
+            notifyDiscord(`The server is now running.`);
+        }
+        if(newLines[i].includes("World Serialization (save)")) {
+            notifyDiscord(`Game saved at ${new Date().toLocaleString()}.`);
+        }
     }
 });
 

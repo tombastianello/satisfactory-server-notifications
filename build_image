@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "Compiling Typescript..."
+cd app/
+tsc index.ts
+echo "Done."
+cd ..
+echo "Press enter to push image or CTRL+C to cancel."
+read -n 1 -s
+docker build . -t ghcr.io/tombastianello/satisfactory-server-notifications:latest
+docker push ghcr.io/tombastianello/satisfactory-server-notifications:latest

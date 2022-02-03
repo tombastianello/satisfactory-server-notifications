@@ -2,7 +2,12 @@
 Simple application intended to be used as a sidecar to the satisfactory dedicated server container. This can also be run manually or as a service, although config examples are not provided at the moment.
 
 ### So what does it do?
-For the moment functionality is basic, however, this can be expanded in the future. Currently this will notify a discord channel via webhook when users connect or disconnect from the server.
+For the moment functionality is basic, however, this can be expanded in the future. Currently this will notify a discord channel via webhook when the following events occur:
+- Server startup.
+- Server startup complete.
+- Game is saved.
+- Player connects to the server.
+- Player disconnects from the server.
 
 ### WARNING
 This is still really hacky at the moment and I can't promise it will work reliably.
