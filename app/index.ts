@@ -4,6 +4,7 @@ import * as https from "https";
 
 const gameLogPath = process.env.LOG_PATH || "/config/gamefiles/FactoryGame/Saved/Logs";
 const webhookPath = process.env.WEBHOOK_PATH;
+
 if(!(webhookPath)) {
     throw new Error("Please specify a Discord Webhoom path in the following format: /api/webhooks/<wh_id>/<wh_token>");
 }
@@ -100,7 +101,9 @@ watchFile(logFile, () => {
             notifyDiscord(`The server is now running.`);
         }
         if(newLines[i].includes("World Serialization (save)")) {
-            notifyDiscord(`Game saved at ${new Date().toLocaleString()}.`);
+            if(users.length === 0) {
+                notifyDiscord(`Game saved at ${new Date().toLocaleString()}.`);
+            }
         }
     }
 });
