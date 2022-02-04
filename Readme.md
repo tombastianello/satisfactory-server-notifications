@@ -5,7 +5,7 @@ Simple application intended to be used as a sidecar to the satisfactory dedicate
 For the moment functionality is basic, however, this can be expanded in the future. Currently this will notify a discord channel via webhook when the following events occur:
 - Server startup.
 - Server startup complete.
-- Game is saved.
+- Game is saved (currently only when no players are online to avoid spamming).
 - Player connects to the server.
 - Player disconnects from the server.
 
