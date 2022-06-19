@@ -79,14 +79,14 @@ watchFile(logFile, () => {
             pendingIP = "";
         }
         if (newLines[i].includes("AddClientConnection: Added client connection")) {
-            let matchResult = newLines[i].match(/(?:[0-9]{1,3}\.){3}[0-9]{1,3}/gm);
+            let matchResult = newLines[i].match(/(?:IpConnection_)[0-9]*/gm);
             if (matchResult) {
                 pendingIP = matchResult[0];
             }
         }
         if (newLines[i].includes("UNetConnection::Close")) {
             let disconnectIP = "";
-            let matchResult = newLines[i].match(/(?:[0-9]{1,3}\.){3}[0-9]{1,3}/gm);
+            let matchResult = newLines[i].match(/(?:IpConnection_)[0-9]*/gm);
             if (matchResult) {
                 disconnectIP = matchResult[0];
             }
